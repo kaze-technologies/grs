@@ -41,18 +41,18 @@
 #include <stdint.h>
 #include <thread>
 
-#include "uart.h"
-#include "event_log.h"
-#include "log.h"
-#include "protocol_statistic.h"
-#include "packet_data.h"
-#include "ngham_pkts.h"
-#include "read_log.h"
-#include "uplink_event.h"
-#include "payload_x_upload.h"
-#include "udp_decoder.h"
-#include "packets/beacon_data.h"
-#include "audio_decoder.h"
+//~ #include "uart.h"
+//~ #include "event_log.h"
+//~ #include "log.h"
+//~ #include "protocol_statistic.h"
+//~ #include "packet_data.h"
+//~ #include "ngham_pkts.h"
+//~ #include "read_log.h"
+//~ #include "uplink_event.h"
+//~ #include "payload_x_upload.h"
+//~ #include "udp_decoder.h"
+//~ #include "packets/beacon_data.h"
+//~ #include "audio_decoder.h"
 
 #define FSAT_PKT_ANA_DEFAULT_UI_FILE                "/usr/share/floripasat-grs/glade/fsat_grs_gui.glade"
 #define FSAT_PKT_ANA_DEFAULT_UI_FILE_LOCAL          "glade/fsat_grs_gui.glade"
@@ -173,11 +173,11 @@ class FSatGRS
         Gtk::Button                     *button_clear_all_beacon;
         Gtk::ProgressBar                *progress_bar_beacon_audio_file;
 
-        std::unique_ptr<AudioDecoder>   beacon_audio_decoder;
-        std::unique_ptr<std::thread>    thread_beacon_audio_decoder;
+        //~ std::unique_ptr<AudioDecoder>   beacon_audio_decoder;
+        //~ std::unique_ptr<std::thread>    thread_beacon_audio_decoder;
 
-        std::unique_ptr<udp_decoder>    udp_decoder_beacon;
-        std::unique_ptr<std::thread>    thread_beacon_udp_decoder;
+        //~ std::unique_ptr<udp_decoder>    udp_decoder_beacon;
+        //~ std::unique_ptr<std::thread>    thread_beacon_udp_decoder;
 
         // Telemetry stream
         Gtk::RadioButton                *radiobutton_telemetry_src_sdr;
@@ -198,350 +198,350 @@ class FSatGRS
         Gtk::Button                     *button_clear_all_telemetry;
         Gtk::ProgressBar                *progress_bar_downlink_audio_file;
 
-        std::unique_ptr<AudioDecoder>   downlink_audio_decoder;
-        std::unique_ptr<std::thread>    thread_downlink_audio_decoder;
+        //~ std::unique_ptr<AudioDecoder>   downlink_audio_decoder;
+        //~ std::unique_ptr<std::thread>    thread_downlink_audio_decoder;
 
-        std::unique_ptr<udp_decoder>    udp_decoder_downlink;
-        std::unique_ptr<std::thread>    thread_downlink_udp_decoder;
+        //~ std::unique_ptr<udp_decoder>    udp_decoder_downlink;
+        //~ std::unique_ptr<std::thread>    thread_downlink_udp_decoder;
 
         // Uplink stream
-        Gtk::RadioButton                *radiobutton_uplink_output_sdr;
-        Gtk::ComboBox                   *combobox_uplink_output_sdr_device;
-        Gtk::RadioButton                *radiobutton_uplink_output_server;
-        Gtk::Entry                      *entry_uplink_output_server_ip;
-        Gtk::Entry                      *entry_uplink_output_server_port;
-        Gtk::RadioButton                *radiobutton_uplink_output_serial;
-        Gtk::Entry                      *entry_uplink_output_serial_dev;
-        Gtk::ComboBox                   *combobox_uplink_output_serial_baudrate;
-        Gtk::RadioButton                *radiobutton_uplink_grs_scheduler;
-        Gtk::Button                     *button_uplink_control_open_grs_scheduler;
-        Gtk::RadioButton                *radiobutton_uplink_server_control;
-        Gtk::Entry                      *entry_uplink_server_ip;
-        Gtk::Entry                      *entry_uplink_server_port;
-        Gtk::RadioButton                *radiobutton_uplink_manual_control;
-        Gtk::ToggleButton               *togglebutton_play_uplink;
-        Gtk::ToggleButton               *togglebutton_pause_uplink;
-        Gtk::Button                     *button_stop_uplink;
+        //~ Gtk::RadioButton                *radiobutton_uplink_output_sdr;
+        //~ Gtk::ComboBox                   *combobox_uplink_output_sdr_device;
+        //~ Gtk::RadioButton                *radiobutton_uplink_output_server;
+        //~ Gtk::Entry                      *entry_uplink_output_server_ip;
+        //~ Gtk::Entry                      *entry_uplink_output_server_port;
+        //~ Gtk::RadioButton                *radiobutton_uplink_output_serial;
+        //~ Gtk::Entry                      *entry_uplink_output_serial_dev;
+        //~ Gtk::ComboBox                   *combobox_uplink_output_serial_baudrate;
+        //~ Gtk::RadioButton                *radiobutton_uplink_grs_scheduler;
+        //~ Gtk::Button                     *button_uplink_control_open_grs_scheduler;
+        //~ Gtk::RadioButton                *radiobutton_uplink_server_control;
+        //~ Gtk::Entry                      *entry_uplink_server_ip;
+        //~ Gtk::Entry                      *entry_uplink_server_port;
+        //~ Gtk::RadioButton                *radiobutton_uplink_manual_control;
+        //~ Gtk::ToggleButton               *togglebutton_play_uplink;
+        //~ Gtk::ToggleButton               *togglebutton_pause_uplink;
+        //~ Gtk::Button                     *button_stop_uplink;
 
-        // Event log
-        Gtk::TextView                   *textview_event_log;
+        //~ // Event log
+        //~ Gtk::TextView                   *textview_event_log;
         
-        // NGHam Preamble
-        Gtk::Entry                      *entry_ngham_config_preamble_byte;
-        Gtk::Entry                      *entry_ngham_config_preamble_quant;
+        //~ // NGHam Preamble
+        //~ Gtk::Entry                      *entry_ngham_config_preamble_byte;
+        //~ Gtk::Entry                      *entry_ngham_config_preamble_quant;
         
-        // NGHam Sync. Bytes
-        Gtk::Entry                      *entry_ngham_sync_bytes_s0;
-        Gtk::Entry                      *entry_ngham_sync_bytes_s1;
-        Gtk::Entry                      *entry_ngham_sync_bytes_s2;
-        Gtk::Entry                      *entry_ngham_sync_bytes_s3;
+        //~ // NGHam Sync. Bytes
+        //~ Gtk::Entry                      *entry_ngham_sync_bytes_s0;
+        //~ Gtk::Entry                      *entry_ngham_sync_bytes_s1;
+        //~ Gtk::Entry                      *entry_ngham_sync_bytes_s2;
+        //~ Gtk::Entry                      *entry_ngham_sync_bytes_s3;
         
-        // AX25 Preamble
-        Gtk::Entry                      *entry_ax25_config_preamble_byte;
-        Gtk::Entry                      *entry_ax25_config_preamble_quant;
+        //~ // AX25 Preamble
+        //~ Gtk::Entry                      *entry_ax25_config_preamble_byte;
+        //~ Gtk::Entry                      *entry_ax25_config_preamble_quant;
         
-        // AX25 Sync. Bytes
-        Gtk::Entry                      *entry_ax25_sync_bytes_s0;
-        Gtk::Entry                      *entry_ax25_sync_bytes_s1;
-        Gtk::Entry                      *entry_ax25_sync_bytes_s2;
-        Gtk::Entry                      *entry_ax25_sync_bytes_s3;
+        //~ // AX25 Sync. Bytes
+        //~ Gtk::Entry                      *entry_ax25_sync_bytes_s0;
+        //~ Gtk::Entry                      *entry_ax25_sync_bytes_s1;
+        //~ Gtk::Entry                      *entry_ax25_sync_bytes_s2;
+        //~ Gtk::Entry                      *entry_ax25_sync_bytes_s3;
         
-        // NGHam Statistics
-        Gtk::Label                      *label_ngham_valid_value;
-        Gtk::Label                      *label_ngham_invalid_value;
-        Gtk::Label                      *label_ngham_total_value;
-        Gtk::Label                      *label_ngham_lost_value;
+        //~ // NGHam Statistics
+        //~ Gtk::Label                      *label_ngham_valid_value;
+        //~ Gtk::Label                      *label_ngham_invalid_value;
+        //~ Gtk::Label                      *label_ngham_total_value;
+        //~ Gtk::Label                      *label_ngham_lost_value;
         
-        // AX25 Statistics
-        Gtk::Label                      *label_ax25_valid_value;
-        Gtk::Label                      *label_ax25_invalid_value;
-        Gtk::Label                      *label_ax25_total_value;
-        Gtk::Label                      *label_ax25_lost_value;
+        //~ // AX25 Statistics
+        //~ Gtk::Label                      *label_ax25_valid_value;
+        //~ Gtk::Label                      *label_ax25_invalid_value;
+        //~ Gtk::Label                      *label_ax25_total_value;
+        //~ Gtk::Label                      *label_ax25_lost_value;
         
-        // Beacon Data
-        Gtk::Label                      *label_beacon_data_bat1_v_value;
-        Gtk::Label                      *label_beacon_data_bat2_v_value;
-        Gtk::Label                      *label_beacon_data_bat_mon_value;
-        Gtk::Label                      *label_beacon_data_bat_current_value;
-        Gtk::Label                      *label_beacon_data_bat_c_value;
-        Gtk::Label                      *label_beacon_data_sp_i_my;
-        Gtk::Label                      *label_beacon_data_sp_i_px;
-        Gtk::Label                      *label_beacon_data_sp_i_mx;
-        Gtk::Label                      *label_beacon_data_sp_i_pz;
-        Gtk::Label                      *label_beacon_data_sp_i_mz;
-        Gtk::Label                      *label_beacon_data_sp_i_py;
-        Gtk::Label                      *label_beacon_data_sp_v_mypx;
-        Gtk::Label                      *label_beacon_data_sp_v_mxpz;
-        Gtk::Label                      *label_beacon_data_sp_v_mzpy;
-        Gtk::Label                      *label_beacon_data_status_energy_level;
-        Gtk::Label                      *label_beacon_data_uc_temp_value;
-        Gtk::Label                      *label_beacon_data_status_imu;
-        Gtk::Label                      *label_beacon_data_status_usd;
-        Gtk::Label                      *label_beacon_data_status_rush;
-        Gtk::Label                      *label_beacon_data_status_eps;
-        Gtk::Label                      *label_beacon_data_status_antenna;
-        Gtk::Label                      *label_beacon_data_imu_accel_x;
-        Gtk::Label                      *label_beacon_data_imu_accel_y;
-        Gtk::Label                      *label_beacon_data_imu_accel_z;
-        Gtk::Label                      *label_beacon_data_imu_gyro_x;
-        Gtk::Label                      *label_beacon_data_imu_gyro_y;
-        Gtk::Label                      *label_beacon_data_imu_gyro_z;
-        Gtk::Label                      *label_beacon_data_obdh_rst_value;
-        Gtk::Label                      *label_beacon_data_system_time_value;
+        //~ // Beacon Data
+        //~ Gtk::Label                      *label_beacon_data_bat1_v_value;
+        //~ Gtk::Label                      *label_beacon_data_bat2_v_value;
+        //~ Gtk::Label                      *label_beacon_data_bat_mon_value;
+        //~ Gtk::Label                      *label_beacon_data_bat_current_value;
+        //~ Gtk::Label                      *label_beacon_data_bat_c_value;
+        //~ Gtk::Label                      *label_beacon_data_sp_i_my;
+        //~ Gtk::Label                      *label_beacon_data_sp_i_px;
+        //~ Gtk::Label                      *label_beacon_data_sp_i_mx;
+        //~ Gtk::Label                      *label_beacon_data_sp_i_pz;
+        //~ Gtk::Label                      *label_beacon_data_sp_i_mz;
+        //~ Gtk::Label                      *label_beacon_data_sp_i_py;
+        //~ Gtk::Label                      *label_beacon_data_sp_v_mypx;
+        //~ Gtk::Label                      *label_beacon_data_sp_v_mxpz;
+        //~ Gtk::Label                      *label_beacon_data_sp_v_mzpy;
+        //~ Gtk::Label                      *label_beacon_data_status_energy_level;
+        //~ Gtk::Label                      *label_beacon_data_uc_temp_value;
+        //~ Gtk::Label                      *label_beacon_data_status_imu;
+        //~ Gtk::Label                      *label_beacon_data_status_usd;
+        //~ Gtk::Label                      *label_beacon_data_status_rush;
+        //~ Gtk::Label                      *label_beacon_data_status_eps;
+        //~ Gtk::Label                      *label_beacon_data_status_antenna;
+        //~ Gtk::Label                      *label_beacon_data_imu_accel_x;
+        //~ Gtk::Label                      *label_beacon_data_imu_accel_y;
+        //~ Gtk::Label                      *label_beacon_data_imu_accel_z;
+        //~ Gtk::Label                      *label_beacon_data_imu_gyro_x;
+        //~ Gtk::Label                      *label_beacon_data_imu_gyro_y;
+        //~ Gtk::Label                      *label_beacon_data_imu_gyro_z;
+        //~ Gtk::Label                      *label_beacon_data_obdh_rst_value;
+        //~ Gtk::Label                      *label_beacon_data_system_time_value;
 
-        // Telemetry Data
-        Gtk::Label                      *label_telemetry_data_status_reset_counter;
-        Gtk::Label                      *label_telemetry_data_status_reset_cause;
-        Gtk::Label                      *label_telemetry_data_status_clock;
-        Gtk::Label                      *label_telemetry_data_status_imu;
-        Gtk::Label                      *label_telemetry_data_status_usd;
-        Gtk::Label                      *label_telemetry_data_status_rush;
-        Gtk::Label                      *label_telemetry_data_status_eps;
-        Gtk::Label                      *label_telemetry_data_status_antenna;
-        Gtk::Label                      *label_telemetry_data_uc_temp;
-        Gtk::Label                      *label_telemetry_data_uc_voltage;
-        Gtk::Label                      *label_telemetry_data_uc_current;
-        Gtk::Label                      *label_telemetry_data_time_system;
-        Gtk::Label                      *label_telemetry_data_time_system_up;
-        Gtk::Label                      *label_telemetry_data_imu_accel_x;
-        Gtk::Label                      *label_telemetry_data_imu_accel_y;
-        Gtk::Label                      *label_telemetry_data_imu_accel_z;
-        Gtk::Label                      *label_telemetry_data_imu_gyro_x;
-        Gtk::Label                      *label_telemetry_data_imu_gyro_y;
-        Gtk::Label                      *label_telemetry_data_imu_gyro_z;
-        Gtk::Label                      *label_telemetry_data_sp_sun_p1;
-        Gtk::Label                      *label_telemetry_data_sp_sun_p2;
-        Gtk::Label                      *label_telemetry_data_sp_sun_p3;
-        Gtk::Label                      *label_telemetry_data_sp_temp_p1;
-        Gtk::Label                      *label_telemetry_data_sp_temp_p2;
-        Gtk::Label                      *label_telemetry_data_sp_temp_p3;
-        Gtk::Label                      *label_telemetry_data_eps_bat_mean_i;
-        Gtk::Label                      *label_telemetry_data_eps_bat_temp;
-        Gtk::Label                      *label_telemetry_data_eps_bat_1_volt;
-        Gtk::Label                      *label_telemetry_data_eps_bat_2_volt;
-        Gtk::Label                      *label_telemetry_data_eps_bat_current;
-        Gtk::Label                      *label_telemetry_data_eps_bat_charge;
-        Gtk::Label                      *label_telemetry_data_eps_bat_protection;
-        Gtk::Label                      *label_telemetry_data_eps_bat_status;
-        Gtk::Label                      *label_telemetry_data_eps_bat_cycles;
-        Gtk::Label                      *label_telemetry_data_eps_bat_raac;
-        Gtk::Label                      *label_telemetry_data_eps_bat_rsac;
-        Gtk::Label                      *label_telemetry_data_eps_bat_rarc;
-        Gtk::Label                      *label_telemetry_data_eps_bat_rsrc;
-        Gtk::Label                      *label_telemetry_data_eps_sp_i_my;
-        Gtk::Label                      *label_telemetry_data_eps_sp_i_px;
-        Gtk::Label                      *label_telemetry_data_eps_sp_i_mx;
-        Gtk::Label                      *label_telemetry_data_eps_sp_i_pz;
-        Gtk::Label                      *label_telemetry_data_eps_sp_i_mz;
-        Gtk::Label                      *label_telemetry_data_eps_sp_i_py;
-        Gtk::Label                      *label_telemetry_data_eps_sp_v_mypx;
-        Gtk::Label                      *label_telemetry_data_eps_sp_v_mxpz;
-        Gtk::Label                      *label_telemetry_data_eps_sp_v_mzpy;
-        Gtk::Label                      *label_telemetry_data_eps_misc_boost_v;
-        Gtk::Label                      *label_telemetry_data_eps_misc_main_bus_v;
-        Gtk::Label                      *label_telemetry_data_eps_misc_beacon_i;
-        Gtk::Label                      *label_telemetry_data_eps_misc_uc_temp;
-        Gtk::Label                      *label_telemetry_data_eps_misc_energy_level;
+        //~ // Telemetry Data
+        //~ Gtk::Label                      *label_telemetry_data_status_reset_counter;
+        //~ Gtk::Label                      *label_telemetry_data_status_reset_cause;
+        //~ Gtk::Label                      *label_telemetry_data_status_clock;
+        //~ Gtk::Label                      *label_telemetry_data_status_imu;
+        //~ Gtk::Label                      *label_telemetry_data_status_usd;
+        //~ Gtk::Label                      *label_telemetry_data_status_rush;
+        //~ Gtk::Label                      *label_telemetry_data_status_eps;
+        //~ Gtk::Label                      *label_telemetry_data_status_antenna;
+        //~ Gtk::Label                      *label_telemetry_data_uc_temp;
+        //~ Gtk::Label                      *label_telemetry_data_uc_voltage;
+        //~ Gtk::Label                      *label_telemetry_data_uc_current;
+        //~ Gtk::Label                      *label_telemetry_data_time_system;
+        //~ Gtk::Label                      *label_telemetry_data_time_system_up;
+        //~ Gtk::Label                      *label_telemetry_data_imu_accel_x;
+        //~ Gtk::Label                      *label_telemetry_data_imu_accel_y;
+        //~ Gtk::Label                      *label_telemetry_data_imu_accel_z;
+        //~ Gtk::Label                      *label_telemetry_data_imu_gyro_x;
+        //~ Gtk::Label                      *label_telemetry_data_imu_gyro_y;
+        //~ Gtk::Label                      *label_telemetry_data_imu_gyro_z;
+        //~ Gtk::Label                      *label_telemetry_data_sp_sun_p1;
+        //~ Gtk::Label                      *label_telemetry_data_sp_sun_p2;
+        //~ Gtk::Label                      *label_telemetry_data_sp_sun_p3;
+        //~ Gtk::Label                      *label_telemetry_data_sp_temp_p1;
+        //~ Gtk::Label                      *label_telemetry_data_sp_temp_p2;
+        //~ Gtk::Label                      *label_telemetry_data_sp_temp_p3;
+        //~ Gtk::Label                      *label_telemetry_data_eps_bat_mean_i;
+        //~ Gtk::Label                      *label_telemetry_data_eps_bat_temp;
+        //~ Gtk::Label                      *label_telemetry_data_eps_bat_1_volt;
+        //~ Gtk::Label                      *label_telemetry_data_eps_bat_2_volt;
+        //~ Gtk::Label                      *label_telemetry_data_eps_bat_current;
+        //~ Gtk::Label                      *label_telemetry_data_eps_bat_charge;
+        //~ Gtk::Label                      *label_telemetry_data_eps_bat_protection;
+        //~ Gtk::Label                      *label_telemetry_data_eps_bat_status;
+        //~ Gtk::Label                      *label_telemetry_data_eps_bat_cycles;
+        //~ Gtk::Label                      *label_telemetry_data_eps_bat_raac;
+        //~ Gtk::Label                      *label_telemetry_data_eps_bat_rsac;
+        //~ Gtk::Label                      *label_telemetry_data_eps_bat_rarc;
+        //~ Gtk::Label                      *label_telemetry_data_eps_bat_rsrc;
+        //~ Gtk::Label                      *label_telemetry_data_eps_sp_i_my;
+        //~ Gtk::Label                      *label_telemetry_data_eps_sp_i_px;
+        //~ Gtk::Label                      *label_telemetry_data_eps_sp_i_mx;
+        //~ Gtk::Label                      *label_telemetry_data_eps_sp_i_pz;
+        //~ Gtk::Label                      *label_telemetry_data_eps_sp_i_mz;
+        //~ Gtk::Label                      *label_telemetry_data_eps_sp_i_py;
+        //~ Gtk::Label                      *label_telemetry_data_eps_sp_v_mypx;
+        //~ Gtk::Label                      *label_telemetry_data_eps_sp_v_mxpz;
+        //~ Gtk::Label                      *label_telemetry_data_eps_sp_v_mzpy;
+        //~ Gtk::Label                      *label_telemetry_data_eps_misc_boost_v;
+        //~ Gtk::Label                      *label_telemetry_data_eps_misc_main_bus_v;
+        //~ Gtk::Label                      *label_telemetry_data_eps_misc_beacon_i;
+        //~ Gtk::Label                      *label_telemetry_data_eps_misc_uc_temp;
+        //~ Gtk::Label                      *label_telemetry_data_eps_misc_energy_level;
 
-        // Telemetry Packets Statistic
-        Gtk::Label                      *label_telemetry_pkt_statistic_total;
-        Gtk::Label                      *label_telemetry_pkt_statistic_lost;
+        //~ // Telemetry Packets Statistic
+        //~ Gtk::Label                      *label_telemetry_pkt_statistic_total;
+        //~ Gtk::Label                      *label_telemetry_pkt_statistic_lost;
         
-        // Preferences Dialog
-        Gtk::Dialog                     *dialog_config;
-        Gtk::Entry                      *entry_config_general_gs_id;
-        Gtk::Entry                      *entry_config_general_grid;
-        Gtk::Entry                      *entry_config_general_city;
-        Gtk::Entry                      *entry_config_general_country;
-        Gtk::CheckButton                *checkbutton_log_ngham_packets;
-        Gtk::CheckButton                *checkbutton_log_ax25_packets;
-        Gtk::CheckButton                *checkbutton_log_beacon_data;
-        Gtk::CheckButton                *checkbutton_log_telemetry_data;
-        Gtk::Entry                      *entry_config_downlink_beacon_freq;
-        Gtk::Entry                      *entry_config_downlink_beacon_baudrate;
-        Gtk::Entry                      *entry_config_downlink_beacon_filter;
-        Gtk::Entry                      *entry_config_downlink_beacon_sample_rate;
-        Gtk::Entry                      *entry_config_downlink_telemetry_freq;
-        Gtk::Entry                      *entry_config_downlink_telemetry_baudrate;
-        Gtk::Entry                      *entry_config_downlink_telemetry_filter;
-        Gtk::Entry                      *entry_config_downlink_telemetry_sample_rate;
-        Gtk::Entry                      *entry_config_uplink_burst;
-        Gtk::Entry                      *entry_config_uplink_frequency;
-        Gtk::Entry                      *entry_config_uplink_baudrate;
-        Gtk::Button                     *button_config_ok;
-        Gtk::Button                     *button_config_default;
+        //~ // Preferences Dialog
+        //~ Gtk::Dialog                     *dialog_config;
+        //~ Gtk::Entry                      *entry_config_general_gs_id;
+        //~ Gtk::Entry                      *entry_config_general_grid;
+        //~ Gtk::Entry                      *entry_config_general_city;
+        //~ Gtk::Entry                      *entry_config_general_country;
+        //~ Gtk::CheckButton                *checkbutton_log_ngham_packets;
+        //~ Gtk::CheckButton                *checkbutton_log_ax25_packets;
+        //~ Gtk::CheckButton                *checkbutton_log_beacon_data;
+        //~ Gtk::CheckButton                *checkbutton_log_telemetry_data;
+        //~ Gtk::Entry                      *entry_config_downlink_beacon_freq;
+        //~ Gtk::Entry                      *entry_config_downlink_beacon_baudrate;
+        //~ Gtk::Entry                      *entry_config_downlink_beacon_filter;
+        //~ Gtk::Entry                      *entry_config_downlink_beacon_sample_rate;
+        //~ Gtk::Entry                      *entry_config_downlink_telemetry_freq;
+        //~ Gtk::Entry                      *entry_config_downlink_telemetry_baudrate;
+        //~ Gtk::Entry                      *entry_config_downlink_telemetry_filter;
+        //~ Gtk::Entry                      *entry_config_downlink_telemetry_sample_rate;
+        //~ Gtk::Entry                      *entry_config_uplink_burst;
+        //~ Gtk::Entry                      *entry_config_uplink_frequency;
+        //~ Gtk::Entry                      *entry_config_uplink_baudrate;
+        //~ Gtk::Button                     *button_config_ok;
+        //~ Gtk::Button                     *button_config_default;
         
-        // About Dialog
-        Gtk::AboutDialog                *aboutdialog;
+        //~ // About Dialog
+        //~ Gtk::AboutDialog                *aboutdialog;
         
-        // Plot Dialog
-        Gtk::Dialog                     *dialog_plot;
-        Gtk::FileChooserButton          *filechooserbutton_plot_beacon;
-        Gtk::ComboBox                   *combobox_plot_beacon_data;
-        Gtk::Entry                      *entry_plot_beacon_title;
-        Gtk::CheckButton                *checkbutton_plot_beacon_connect_points;
-        Gtk::CheckButton                *checkbutton_plot_beacon_best_curve;
-        Gtk::CheckButton                *checkbutton_plot_save_pdf_beacon;
-        Gtk::FileChooserButton          *filechooser_plot_beacon_pdf_filename;
-        Gtk::Button                     *button_plot_beacon_data;
-        Gtk::FileChooserButton          *filechooserbutton_plot_telemetry;
-        Gtk::ComboBox                   *combobox_plot_telemetry_data;
-        Gtk::Entry                      *entry_plot_downlink_title;
-        Gtk::CheckButton                *checkbutton_plot_telemetry_connect_points;
-        Gtk::CheckButton                *checkbutton_plot_telemetry_best_curve;
-        Gtk::CheckButton                *checkbutton_plot_save_pdf_telemetry;
-        Gtk::FileChooserButton          *filechooser_plot_downlink_pdf_filename;
-        Gtk::CheckButton                *checkbutton_plot_use_sat_time_telemetry;
-        Gtk::Button                     *button_plot_downlink_data;
+        //~ // Plot Dialog
+        //~ Gtk::Dialog                     *dialog_plot;
+        //~ Gtk::FileChooserButton          *filechooserbutton_plot_beacon;
+        //~ Gtk::ComboBox                   *combobox_plot_beacon_data;
+        //~ Gtk::Entry                      *entry_plot_beacon_title;
+        //~ Gtk::CheckButton                *checkbutton_plot_beacon_connect_points;
+        //~ Gtk::CheckButton                *checkbutton_plot_beacon_best_curve;
+        //~ Gtk::CheckButton                *checkbutton_plot_save_pdf_beacon;
+        //~ Gtk::FileChooserButton          *filechooser_plot_beacon_pdf_filename;
+        //~ Gtk::Button                     *button_plot_beacon_data;
+        //~ Gtk::FileChooserButton          *filechooserbutton_plot_telemetry;
+        //~ Gtk::ComboBox                   *combobox_plot_telemetry_data;
+        //~ Gtk::Entry                      *entry_plot_downlink_title;
+        //~ Gtk::CheckButton                *checkbutton_plot_telemetry_connect_points;
+        //~ Gtk::CheckButton                *checkbutton_plot_telemetry_best_curve;
+        //~ Gtk::CheckButton                *checkbutton_plot_save_pdf_telemetry;
+        //~ Gtk::FileChooserButton          *filechooser_plot_downlink_pdf_filename;
+        //~ Gtk::CheckButton                *checkbutton_plot_use_sat_time_telemetry;
+        //~ Gtk::Button                     *button_plot_downlink_data;
         
-        // Data Request Dialog
-        Gtk::Dialog                     *dialog_data_request;
-        Gtk::CheckButton                *checkbutton_request_packet_flags;
-        Gtk::CheckButton                *checkbutton_request_obdh_status;
-        Gtk::CheckButton                *checkbutton_request_imu;
-        Gtk::CheckButton                *checkbutton_request_obdh_time;
-        Gtk::CheckButton                *checkbutton_request_obdh_mis;
-        Gtk::CheckButton                *checkbutton_request_solar_panels_sensors;
-        Gtk::CheckButton                *checkbutton_request_main_radio;
-        Gtk::CheckButton                *checkbutton_request_solar_panels;
-        Gtk::CheckButton                *checkbutton_request_eps_misc;
-        Gtk::CheckButton                *checkbutton_request_battery_monitor;
-        Gtk::CheckButton                *checkbutton_request_temperatures;
-        Gtk::CheckButton                *checkbutton_request_task_scheduler;
-        Gtk::CheckButton                *checkbutton_request_rush;
-        Gtk::Entry                      *entry_uplink_request_pkt_quant;
-        Gtk::Entry                      *entry_uplink_request_offset;
-        Gtk::RadioButton                *radiobutton_uplink_data_request_start;
-        Gtk::RadioButton                *radiobutton_uplink_data_request_end;
-        Gtk::Button                     *button_data_request_send;
-        Gtk::Button                     *button_data_request_cancel;
+        //~ // Data Request Dialog
+        //~ Gtk::Dialog                     *dialog_data_request;
+        //~ Gtk::CheckButton                *checkbutton_request_packet_flags;
+        //~ Gtk::CheckButton                *checkbutton_request_obdh_status;
+        //~ Gtk::CheckButton                *checkbutton_request_imu;
+        //~ Gtk::CheckButton                *checkbutton_request_obdh_time;
+        //~ Gtk::CheckButton                *checkbutton_request_obdh_mis;
+        //~ Gtk::CheckButton                *checkbutton_request_solar_panels_sensors;
+        //~ Gtk::CheckButton                *checkbutton_request_main_radio;
+        //~ Gtk::CheckButton                *checkbutton_request_solar_panels;
+        //~ Gtk::CheckButton                *checkbutton_request_eps_misc;
+        //~ Gtk::CheckButton                *checkbutton_request_battery_monitor;
+        //~ Gtk::CheckButton                *checkbutton_request_temperatures;
+        //~ Gtk::CheckButton                *checkbutton_request_task_scheduler;
+        //~ Gtk::CheckButton                *checkbutton_request_rush;
+        //~ Gtk::Entry                      *entry_uplink_request_pkt_quant;
+        //~ Gtk::Entry                      *entry_uplink_request_offset;
+        //~ Gtk::RadioButton                *radiobutton_uplink_data_request_start;
+        //~ Gtk::RadioButton                *radiobutton_uplink_data_request_end;
+        //~ Gtk::Button                     *button_data_request_send;
+        //~ Gtk::Button                     *button_data_request_cancel;
 
-        // Message Broadcast Dialog
-        Gtk::Dialog                     *dialog_broadcast_message;
-        Gtk::Entry                      *entry_broadcast_dst_callsign;
-        Gtk::Entry                      *entry_dialog_broadcast_message;
-        Gtk::Button                     *dialog_broadcast_message_send;
-        Gtk::Button                     *dialog_broadcast_message_cancel;
+        //~ // Message Broadcast Dialog
+        //~ Gtk::Dialog                     *dialog_broadcast_message;
+        //~ Gtk::Entry                      *entry_broadcast_dst_callsign;
+        //~ Gtk::Entry                      *entry_dialog_broadcast_message;
+        //~ Gtk::Button                     *dialog_broadcast_message_send;
+        //~ Gtk::Button                     *dialog_broadcast_message_cancel;
 
-        // Hibernation dialog
-        Gtk::Dialog                     *dialog_hibernation;
-        Gtk::Entry                      *entry_hibernation_duration;
-        Gtk::Entry                      *entry_hibernation_key;
-        Gtk::Button                     *button_hibernation_enable;
-        Gtk::Button                     *button_hibernation_disable;
-        Gtk::Button                     *button_hibernation_cancel;
+        //~ // Hibernation dialog
+        //~ Gtk::Dialog                     *dialog_hibernation;
+        //~ Gtk::Entry                      *entry_hibernation_duration;
+        //~ Gtk::Entry                      *entry_hibernation_key;
+        //~ Gtk::Button                     *button_hibernation_enable;
+        //~ Gtk::Button                     *button_hibernation_disable;
+        //~ Gtk::Button                     *button_hibernation_cancel;
 
-        // Charge reset dialog
-        Gtk::Dialog                     *dialog_charge_reset;
-        Gtk::Entry                      *entry_charge_reset_key;
-        Gtk::Button                     *button_reset_charge_send;
-        Gtk::Button                     *button_reset_charge_cancel;
+        //~ // Charge reset dialog
+        //~ Gtk::Dialog                     *dialog_charge_reset;
+        //~ Gtk::Entry                      *entry_charge_reset_key;
+        //~ Gtk::Button                     *button_reset_charge_send;
+        //~ Gtk::Button                     *button_reset_charge_cancel;
 
-        // Uplink Scheduler Manager Dialog
-        Gtk::Dialog                     *dialog_uplink_scheduler_manager;
-        Gtk::TreeView                   *treeview_uplink_scheduler_manager_events;
-        Glib::RefPtr<Gtk::ListStore>    liststore_uplink_events;
-        Gtk::Button                     *button_uplink_scheduler_manager_add;
-        Gtk::Button                     *button_uplink_scheduler_manager_delete;
-        Gtk::Dialog                     *dialog_uplink_scheduler_manager_new_event;
-        Gtk::ComboBox                   *combobox_uplink_scheduler_manager_new_event_cmd;
-        Gtk::Switch                     *switch_uplink_scheduler_manager_new_event_interval;
-        Gtk::Entry                      *entry_uplink_scheduler_manager_new_event_start_time;
-        Gtk::Entry                      *entry_uplink_scheduler_manager_new_event_start_date;
-        Gtk::Entry                      *entry_uplink_scheduler_manager_new_event_end_time;
-        Gtk::Entry                      *entry_uplink_scheduler_manager_new_event_end_date;
-        Gtk::Switch                     *switch_uplink_scheduler_manager_new_event_period;
-        Gtk::Entry                      *entry_uplink_scheduler_manager_new_event_period_value;
-        Gtk::Switch                     *switch_uplink_scheduler_manager_new_event_cycles;
-        Gtk::Entry                      *entry_uplink_scheduler_manager_new_event_cycles_value;
-        Gtk::Button                     *button_uplink_scheduler_manager_new_event_add;
-        Gtk::Button                     *button_uplink_scheduler_manager_new_event_cancel;
+        //~ // Uplink Scheduler Manager Dialog
+        //~ Gtk::Dialog                     *dialog_uplink_scheduler_manager;
+        //~ Gtk::TreeView                   *treeview_uplink_scheduler_manager_events;
+        //~ Glib::RefPtr<Gtk::ListStore>    liststore_uplink_events;
+        //~ Gtk::Button                     *button_uplink_scheduler_manager_add;
+        //~ Gtk::Button                     *button_uplink_scheduler_manager_delete;
+        //~ Gtk::Dialog                     *dialog_uplink_scheduler_manager_new_event;
+        //~ Gtk::ComboBox                   *combobox_uplink_scheduler_manager_new_event_cmd;
+        //~ Gtk::Switch                     *switch_uplink_scheduler_manager_new_event_interval;
+        //~ Gtk::Entry                      *entry_uplink_scheduler_manager_new_event_start_time;
+        //~ Gtk::Entry                      *entry_uplink_scheduler_manager_new_event_start_date;
+        //~ Gtk::Entry                      *entry_uplink_scheduler_manager_new_event_end_time;
+        //~ Gtk::Entry                      *entry_uplink_scheduler_manager_new_event_end_date;
+        //~ Gtk::Switch                     *switch_uplink_scheduler_manager_new_event_period;
+        //~ Gtk::Entry                      *entry_uplink_scheduler_manager_new_event_period_value;
+        //~ Gtk::Switch                     *switch_uplink_scheduler_manager_new_event_cycles;
+        //~ Gtk::Entry                      *entry_uplink_scheduler_manager_new_event_cycles_value;
+        //~ Gtk::Button                     *button_uplink_scheduler_manager_new_event_add;
+        //~ Gtk::Button                     *button_uplink_scheduler_manager_new_event_cancel;
 
-        // Payload X Control
-        Gtk::Window                     *window_payload_x_control;
-        Gtk::Button                     *button_payload_x_request_status;
-        Gtk::FileChooser                *filechooser_payload_x_bitfile;
-        Gtk::Label                      *label_payload_x_bitfile_transferred;
-        Gtk::Label                      *label_payload_x_bitfile_total;
-        Gtk::Entry                      *entry_payload_x_bitfile_block_start;
-        Gtk::Entry                      *entry_payload_x_bitfile_block_end;
-        Gtk::ProgressBar                *progressbar_payload_x_packet_transfer;
-        Gtk::Button                     *button_payload_x_bitfile_send;
-        Gtk::Button                     *button_payload_x_bitfile_swap;
+        //~ // Payload X Control
+        //~ Gtk::Window                     *window_payload_x_control;
+        //~ Gtk::Button                     *button_payload_x_request_status;
+        //~ Gtk::FileChooser                *filechooser_payload_x_bitfile;
+        //~ Gtk::Label                      *label_payload_x_bitfile_transferred;
+        //~ Gtk::Label                      *label_payload_x_bitfile_total;
+        //~ Gtk::Entry                      *entry_payload_x_bitfile_block_start;
+        //~ Gtk::Entry                      *entry_payload_x_bitfile_block_end;
+        //~ Gtk::ProgressBar                *progressbar_payload_x_packet_transfer;
+        //~ Gtk::Button                     *button_payload_x_bitfile_send;
+        //~ Gtk::Button                     *button_payload_x_bitfile_swap;
 
-        // RUSH Dialog
-        Gtk::Dialog                     *dialog_rush;
-        Gtk::Entry                      *entry_rush_timeout;
-        Gtk::Entry                      *entry_rush_key;
-        Gtk::Button                     *button_rush_send;
-        Gtk::Button                     *button_rush_cancel;
+        //~ // RUSH Dialog
+        //~ Gtk::Dialog                     *dialog_rush;
+        //~ Gtk::Entry                      *entry_rush_timeout;
+        //~ Gtk::Entry                      *entry_rush_key;
+        //~ Gtk::Button                     *button_rush_send;
+        //~ Gtk::Button                     *button_rush_cancel;
 
-        std::unique_ptr<PayloadXUpload> payload_x_upload;
+        //~ std::unique_ptr<PayloadXUpload> payload_x_upload;
 
-        // Message Dialog
-        Gtk::MessageDialog              *msg_dialog;
+        //~ // Message Dialog
+        //~ Gtk::MessageDialog              *msg_dialog;
         
-        /**
-         * \brief 
-         */
-        UART                            *uart;
-        /**
-         * \brief 
-         */
-        EventLog                        *event_log;
-        /**
-         * \brief 
-         */
-        ProtocolStatistic               *ngham_statistic;
-        /**
-         * \brief 
-         */
-        //ProtocolStatistic               *ax25_statistic;
-        /**
-         * \brief 
-         */
-        ProtocolStatistic               *telemetry_ngham_statistic;
-        /**
-         * \brief 
-         */
-        PacketData                      *beacon_data;
-        /**
-         * \brief 
-         */
-        PacketData                      *telemetry_data;
-        /**
-         * \brief 
-         */
-        NGHamPkts                       *ngham_pkts_beacon;
-        /**
-         * \brief 
-         */
-        //AX25Pkts                        *ax25_pkts_beacon;
-        /**
-         * \brief 
-         */
-        NGHamPkts                       *ngham_pkts_telemetry;
-        /**
-         * \brief 
-         */
-        ReadLog                         *read_log;
-        /**
-         * \brief A vector to hold all the scheduled events.
-         */
-        std::vector<UplinkEvent>        uplink_events;
+        //~ /**
+         //~ * \brief 
+         //~ */
+        //~ UART                            *uart;
+        //~ /**
+         //~ * \brief 
+         //~ */
+        //~ EventLog                        *event_log;
+        //~ /**
+         //~ * \brief 
+         //~ */
+        //~ ProtocolStatistic               *ngham_statistic;
+        //~ /**
+         //~ * \brief 
+         //~ */
+        //~ //ProtocolStatistic               *ax25_statistic;
+        //~ /**
+         //~ * \brief 
+         //~ */
+        //~ ProtocolStatistic               *telemetry_ngham_statistic;
+        //~ /**
+         //~ * \brief 
+         //~ */
+        //~ PacketData                      *beacon_data;
+        //~ /**
+         //~ * \brief 
+         //~ */
+        //~ PacketData                      *telemetry_data;
+        //~ /**
+         //~ * \brief 
+         //~ */
+        //~ NGHamPkts                       *ngham_pkts_beacon;
+        //~ /**
+         //~ * \brief 
+         //~ */
+        //~ //AX25Pkts                        *ax25_pkts_beacon;
+        //~ /**
+         //~ * \brief 
+         //~ */
+        //~ NGHamPkts                       *ngham_pkts_telemetry;
+        //~ /**
+         //~ * \brief 
+         //~ */
+        //~ ReadLog                         *read_log;
+        //~ /**
+         //~ * \brief A vector to hold all the scheduled events.
+         //~ */
+        //~ std::vector<UplinkEvent>        uplink_events;
         
-        //******************************************************************************************
-        //******************************************************************************************
-        //-- THREADS -------------------------------------------------------------------------------
-        //******************************************************************************************
-        //******************************************************************************************
-        /**
-         * \brief 
-         */
-        std::thread                     *thread_downlink_beacon;
-        std::thread                     *thread_downlink_telemetry;
-        //std::thread                     *thread_uplink;
-        //std::thread                     *thread_plot;
+        //~ //******************************************************************************************
+        //~ //******************************************************************************************
+        //~ //-- THREADS -------------------------------------------------------------------------------
+        //~ //******************************************************************************************
+        //~ //******************************************************************************************
+        //~ /**
+         //~ * \brief 
+         //~ */
+        //~ std::thread                     *thread_downlink_beacon;
+        //~ std::thread                     *thread_downlink_telemetry;
+        //~ //std::thread                     *thread_uplink;
+        //~ //std::thread                     *thread_plot;
 
         /**
          * \brief 
@@ -550,396 +550,396 @@ class FSatGRS
          */
         bool Timer();
 
-        /**
-         * \brief Buffer reset task.
-         *
-         * \return TRUE/FALSE if the task must continue or not.
-         */
-        bool TimerBufferReset();
+        //~ /**
+         //~ * \brief Buffer reset task.
+         //~ *
+         //~ * \return TRUE/FALSE if the task must continue or not.
+         //~ */
+        //~ bool TimerBufferReset();
 
-        /**
-         * \brief Updates the beacon data tab.
-         *
-         * \param[in] beacon is a beacon packet to display.
-         *
-         * \return None.
-         */
-        void UpdateBeaconDataTab(grs::BeaconData beacon);
+        //~ /**
+         //~ * \brief Updates the beacon data tab.
+         //~ *
+         //~ * \param[in] beacon is a beacon packet to display.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void UpdateBeaconDataTab(grs::BeaconData beacon);
 
-        /**
-         * \brief 
-         * 
-         * \return 
-         */
-        void OnToolButtonOpenClicked();
-        /**
-         * \brief 
-         * 
-         * \return 
-         */
-        void OnButtonLogViewerCancelClicked();
-        /**
-         * \brief 
-         * 
-         * \return 
-         */
-        void OnButtonLogViewerOpenClicked();
-        /**
-         * \brief 
-         * 
-         * \return 
-         */
-        void OnToolButtonCloseClicked();
-        /**
-         * \brief 
-         * 
-         * \return 
-         */
-        void OnToolButtonPrevClicked();
-        /**
-         * \brief 
-         * 
-         * \return 
-         */
-        void OnToolButtonNextClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return 
+         //~ */
+        //~ void OnToolButtonOpenClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return 
+         //~ */
+        //~ void OnButtonLogViewerCancelClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return 
+         //~ */
+        //~ void OnButtonLogViewerOpenClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return 
+         //~ */
+        //~ void OnToolButtonCloseClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return 
+         //~ */
+        //~ void OnToolButtonPrevClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return 
+         //~ */
+        //~ void OnToolButtonNextClicked();
 
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnToolButtonRunClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToolButtonRunClicked();
 
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnToolButtonPlotClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToolButtonPlotClicked();
 
-        /**
-         * \brief Ping button click signal handler.
-         * 
-         * \return None
-         */
-        void OnToolButtonPingClicked();
-        /**
-         * \brief Request data button click signal handler.
-         * 
-         * \return None
-         */
-        void OnToolButtonRequestDataClicked();
-        /**
-         * \brief Resets the charge value from EPS batteries.
-         *
-         * \return None
-         */
-        void OnToolButtonResetChargeClicked();
-        /**
-         * \brief Transmits a broadcast command with a custom message.
-         *
-         * \return None.
-         */
-        void OnToolButtonBroadcastMessageClicked();
+        //~ /**
+         //~ * \brief Ping button click signal handler.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToolButtonPingClicked();
+        //~ /**
+         //~ * \brief Request data button click signal handler.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToolButtonRequestDataClicked();
+        //~ /**
+         //~ * \brief Resets the charge value from EPS batteries.
+         //~ *
+         //~ * \return None
+         //~ */
+        //~ void OnToolButtonResetChargeClicked();
+        //~ /**
+         //~ * \brief Transmits a broadcast command with a custom message.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnToolButtonBroadcastMessageClicked();
 
-        /**
-         * \brief Hibernation command button click signal handler.
-         * 
-         * \return None
-         */
-        void OnToolButtonHibernationClicked();
+        //~ /**
+         //~ * \brief Hibernation command button click signal handler.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToolButtonHibernationClicked();
 
-        /**
-         * \brief Payload X control click signal handler.
-         *
-         * \return None.
-         */
-        void OnToolButtonPayloadXClicked();
+        //~ /**
+         //~ * \brief Payload X control click signal handler.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnToolButtonPayloadXClicked();
 
-        /**
-         * \brief RUSH enable click signal handler.
-         *
-         * \return None.
-         */
-        void OnToolButtonRUSHClicked();
+        //~ /**
+         //~ * \brief RUSH enable click signal handler.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnToolButtonRUSHClicked();
 
-        /**
-         * \brief Telecommand scheduler button click signal handler.
-         * 
-         * \return None
-         */
-        void OnToolButtonCmdSchedulerClicked();
-        /**
-         * \brief Open GPredict software.
-         * 
-         * \return None
-         */
-        void OnToolButtonOpenGPredictClicked();
-        /**
-         * \brief Open GQRX software.
-         * 
-         * \return None
-         */
-        void OnToolButtonOpenGQRXClicked();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnToolButtonConfigClicked();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonConfigOkClicked();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonConfigDefaultClicked();
+        //~ /**
+         //~ * \brief Telecommand scheduler button click signal handler.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToolButtonCmdSchedulerClicked();
+        //~ /**
+         //~ * \brief Open GPredict software.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToolButtonOpenGPredictClicked();
+        //~ /**
+         //~ * \brief Open GQRX software.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToolButtonOpenGQRXClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToolButtonConfigClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonConfigOkClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonConfigDefaultClicked();
 
-        /**
-         * \brief Opens the wiki page on the github repository of FloripaSat-GRS software.
-         *
-         * \return None.
-         */
-        void OnToolButtonHelpClicked();
+        //~ /**
+         //~ * \brief Opens the wiki page on the github repository of FloripaSat-GRS software.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnToolButtonHelpClicked();
 
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnToolButtonAboutClicked();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnToggleButtonPlayBeaconToggled();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnToggleButtonPauseBeaconToggled();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonStopBeaconClicked();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonClearAllBeaconClicked();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnToggleButtonPlayTelemetryToggled();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnToggleButtonPauseTelemetryToggled();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonStopTelemetryClicked();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonClearAllTelemetryClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToolButtonAboutClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToggleButtonPlayBeaconToggled();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToggleButtonPauseBeaconToggled();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonStopBeaconClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonClearAllBeaconClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToggleButtonPlayTelemetryToggled();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToggleButtonPauseTelemetryToggled();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonStopTelemetryClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonClearAllTelemetryClicked();
 
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonPlotBeaconDataClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonPlotBeaconDataClicked();
 
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonPlotDownlinkDataClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonPlotDownlinkDataClicked();
 
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonRunAnalysisClicked();
-        /**
-         * \brief Sends the data request command.
-         * 
-         * \return None
-         */
-        void OnButtonDataRequestSendClicked();
-        /**
-         * \brief Cancels the data request
-         * 
-         * Closes the data request dialog.
-         * 
-         * \return None
-         */
-        void OnButtonDataRequestCancelClicked();
-        /**
-         * \brief Sends the broadcast command with a message.
-         *
-         * \return None.
-         */
-        void OnButtonBroadcastDialogSendClicked();
-        /**
-         * \brief Cancel and closes the broadcast message dialog.
-         *
-         * \return None.
-         */
-        void OnButtonBroadcastDialogCancelClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonRunAnalysisClicked();
+        //~ /**
+         //~ * \brief Sends the data request command.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonDataRequestSendClicked();
+        //~ /**
+         //~ * \brief Cancels the data request
+         //~ * 
+         //~ * Closes the data request dialog.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonDataRequestCancelClicked();
+        //~ /**
+         //~ * \brief Sends the broadcast command with a message.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnButtonBroadcastDialogSendClicked();
+        //~ /**
+         //~ * \brief Cancel and closes the broadcast message dialog.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnButtonBroadcastDialogCancelClicked();
 
-        /**
-         * \brief Sends an enter hibernation telecommand.
-         * 
-         * \return None
-         */
-        void OnButtonHibernationEnableClicked();
+        //~ /**
+         //~ * \brief Sends an enter hibernation telecommand.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonHibernationEnableClicked();
 
-        /**
-         * \brief Sends an leave hibernation telecommand.
-         *
-         * \return None.
-         */
-        void OnButtonHibernationDisableClicked();
+        //~ /**
+         //~ * \brief Sends an leave hibernation telecommand.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnButtonHibernationDisableClicked();
 
-        /**
-         * \brief Closes the hibernation telecommand dialog.
-         * 
-         * \return None
-         */
-        void OnButtonHibernationCancelClicked();
+        //~ /**
+         //~ * \brief Closes the hibernation telecommand dialog.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonHibernationCancelClicked();
 
-        /**
-         * \brief Sends an charge reset telecommand.
-         *
-         * \return None.
-         */
-        void OnButtonChargeResetSendClicked();
+        //~ /**
+         //~ * \brief Sends an charge reset telecommand.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnButtonChargeResetSendClicked();
 
-        /**
-         * \brief Closes the charge reset telecommand dialog.
-         *
-         * \return None.
-         */
-        void OnButtonChargeResetCancelClicked();
+        //~ /**
+         //~ * \brief Closes the charge reset telecommand dialog.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnButtonChargeResetCancelClicked();
 
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonGRSSchedulerClicked();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnToggleButtonPlayUplinkStreamToggled();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnToggleButtonPauseUplinkStreamToggled();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonStopUplinkStreamClicked();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonUplinkSchedulerManagerAddClicked();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonUplinkSchedulerManagerDeleteClicked();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonUplinkSchedulerManagerNewEventAddClicked();
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
-        void OnButtonUplinkSchedulerManagerNewEventCancelClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonGRSSchedulerClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToggleButtonPlayUplinkStreamToggled();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnToggleButtonPauseUplinkStreamToggled();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonStopUplinkStreamClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonUplinkSchedulerManagerAddClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonUplinkSchedulerManagerDeleteClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonUplinkSchedulerManagerNewEventAddClicked();
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void OnButtonUplinkSchedulerManagerNewEventCancelClicked();
 
-        /**
-         * \brief Bitfile file chooser selection changed signal handler.
-         *
-         * \return None.
-         */
-        void OnFileChooserPayloadXBitfileSelectionChanged();
+        //~ /**
+         //~ * \brief Bitfile file chooser selection changed signal handler.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnFileChooserPayloadXBitfileSelectionChanged();
 
-        /**
-         * \brief "Request Status" button clicked signal handler.
-         *
-         * \return None.
-         */
-        void OnButtonPayloadXRequestStatusClicked();
+        //~ /**
+         //~ * \brief "Request Status" button clicked signal handler.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnButtonPayloadXRequestStatusClicked();
 
-        /**
-         * \brief "Upload" button clicked signal handler.
-         *
-         * \return None.
-         */
-        void OnButtonPayloadXUploadClicked();
+        //~ /**
+         //~ * \brief "Upload" button clicked signal handler.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnButtonPayloadXUploadClicked();
 
-        /**
-         * \brief Swap button clicked signal handle.
-         *
-         * \return None.
-         */
-        void OnButtonPayloadXSwapClicked();
+        //~ /**
+         //~ * \brief Swap button clicked signal handle.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnButtonPayloadXSwapClicked();
 
-        /**
-         * \brief RUSH send button clicked signal handle.
-         *
-         * \return None.
-         */
-        void OnButtonRUSHSendClicked();
+        //~ /**
+         //~ * \brief RUSH send button clicked signal handle.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnButtonRUSHSendClicked();
 
-        /**
-         * \brief RUSH cancel button clicked signal handler.
-         *
-         * \return None.
-         */
-        void OnButtonRUSHCancelClicked();
+        //~ /**
+         //~ * \brief RUSH cancel button clicked signal handler.
+         //~ *
+         //~ * \return None.
+         //~ */
+        //~ void OnButtonRUSHCancelClicked();
 
-        /**
-         * \brief 
-         * 
-         * \return None
-         */
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \return None
+         //~ */
         void RaiseErrorMessage(const char* error_title, const char* error_text);
         /**
          * \brief 
@@ -948,41 +948,41 @@ class FSatGRS
          * 
          * \return None
          */
-        void RunGNURadioReceiver(uint8_t rx_type=FSAT_GRS_RX_BEACON);
-        /**
-         * \brief 
-         * 
-         * \param uplink_type
-         * 
-         * \return None
-         */
-        void RunGNURadioTransmitter(int uplink_type);
-        /**
-         * \brief Plot a log data column using matplotlib.
-         * 
-         * \param cmd is the command with the arguments to run the python script to call matplotlib.
-         * 
-         * \return None
-         */
-        void RunMatPlotLib(const char *cmd);
-        /**
-         * \brief Load configuration parameters from a configuration parameters file.
-         * 
-         * \return None
-         */
-        void LoadConfigs();
-        /**
-         * \brief Save configuration parameters to a configuration parameters file.
-         * 
-         * \return None
-         */
-        void SaveConfigs();
-        /**
-         * \brief Load the default configuration parameters.
-         * 
-         * \return None
-         */
-        void LoadDefaultConfigs();
+        //~ void RunGNURadioReceiver(uint8_t rx_type=FSAT_GRS_RX_BEACON);
+        //~ /**
+         //~ * \brief 
+         //~ * 
+         //~ * \param uplink_type
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void RunGNURadioTransmitter(int uplink_type);
+        //~ /**
+         //~ * \brief Plot a log data column using matplotlib.
+         //~ * 
+         //~ * \param cmd is the command with the arguments to run the python script to call matplotlib.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void RunMatPlotLib(const char *cmd);
+        //~ /**
+         //~ * \brief Load configuration parameters from a configuration parameters file.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void LoadConfigs();
+        //~ /**
+         //~ * \brief Save configuration parameters to a configuration parameters file.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void SaveConfigs();
+        //~ /**
+         //~ * \brief Load the default configuration parameters.
+         //~ * 
+         //~ * \return None
+         //~ */
+        //~ void LoadDefaultConfigs();
 
         /**
          * \brief Checks the existence of a file.

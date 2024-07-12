@@ -37,10 +37,11 @@
 #ifndef UDP_SERVER_H_
 #define UDP_SERVER_H_
 
-#include <string.h>
+#include <string>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netdb.h>
+#include <netinet/in.h>
 #include <stdint.h>
 #include <vector>
 

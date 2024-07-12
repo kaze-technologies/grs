@@ -85,7 +85,7 @@ bool UDPServer::connect(const string& addr, int port)
         return false;
     }
 
-    r = bind(f_socket, f_addrinfo->ai_addr, f_addrinfo->ai_addrlen);
+    r = ::bind(f_socket, f_addrinfo->ai_addr, f_addrinfo->ai_addrlen);
     if (r != 0)
     {
         freeaddrinfo(f_addrinfo);

@@ -33,7 +33,7 @@
  * \{
  */
 
-#include <python2.7/Python.h>
+#include <python3.9/Python.h>
 
 #include "udp_decoder.h"
 
