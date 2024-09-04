@@ -42,12 +42,12 @@
 #include <thread>
 
 //~ #include "uart.h"
-//~ #include "event_log.h"
-//~ #include "log.h"
+#include "event_log.h"
+#include "log.h"
 //~ #include "protocol_statistic.h"
-//~ #include "packet_data.h"
+#include "packet_data.h"
 //~ #include "ngham_pkts.h"
-//~ #include "read_log.h"
+#include "read_log.h"
 //~ #include "uplink_event.h"
 //~ #include "payload_x_upload.h"
 //~ #include "udp_decoder.h"
@@ -224,7 +224,7 @@ class FSatGRS
         //~ Gtk::Button                     *button_stop_uplink;
 
         //~ // Event log
-        //~ Gtk::TextView                   *textview_event_log;
+        Gtk::TextView                   *textview_event_log;
         
         //~ // NGHam Preamble
         //~ Gtk::Entry                      *entry_ngham_config_preamble_byte;
@@ -259,35 +259,35 @@ class FSatGRS
         //~ Gtk::Label                      *label_ax25_lost_value;
         
         //~ // Beacon Data
-        //~ Gtk::Label                      *label_beacon_data_bat1_v_value;
-        //~ Gtk::Label                      *label_beacon_data_bat2_v_value;
-        //~ Gtk::Label                      *label_beacon_data_bat_mon_value;
-        //~ Gtk::Label                      *label_beacon_data_bat_current_value;
-        //~ Gtk::Label                      *label_beacon_data_bat_c_value;
-        //~ Gtk::Label                      *label_beacon_data_sp_i_my;
-        //~ Gtk::Label                      *label_beacon_data_sp_i_px;
-        //~ Gtk::Label                      *label_beacon_data_sp_i_mx;
-        //~ Gtk::Label                      *label_beacon_data_sp_i_pz;
-        //~ Gtk::Label                      *label_beacon_data_sp_i_mz;
-        //~ Gtk::Label                      *label_beacon_data_sp_i_py;
-        //~ Gtk::Label                      *label_beacon_data_sp_v_mypx;
-        //~ Gtk::Label                      *label_beacon_data_sp_v_mxpz;
-        //~ Gtk::Label                      *label_beacon_data_sp_v_mzpy;
-        //~ Gtk::Label                      *label_beacon_data_status_energy_level;
-        //~ Gtk::Label                      *label_beacon_data_uc_temp_value;
-        //~ Gtk::Label                      *label_beacon_data_status_imu;
-        //~ Gtk::Label                      *label_beacon_data_status_usd;
-        //~ Gtk::Label                      *label_beacon_data_status_rush;
-        //~ Gtk::Label                      *label_beacon_data_status_eps;
-        //~ Gtk::Label                      *label_beacon_data_status_antenna;
-        //~ Gtk::Label                      *label_beacon_data_imu_accel_x;
-        //~ Gtk::Label                      *label_beacon_data_imu_accel_y;
-        //~ Gtk::Label                      *label_beacon_data_imu_accel_z;
-        //~ Gtk::Label                      *label_beacon_data_imu_gyro_x;
-        //~ Gtk::Label                      *label_beacon_data_imu_gyro_y;
-        //~ Gtk::Label                      *label_beacon_data_imu_gyro_z;
-        //~ Gtk::Label                      *label_beacon_data_obdh_rst_value;
-        //~ Gtk::Label                      *label_beacon_data_system_time_value;
+        Gtk::Label                      *label_beacon_data_bat1_v_value;
+        Gtk::Label                      *label_beacon_data_bat2_v_value;
+        Gtk::Label                      *label_beacon_data_bat_mon_value;
+        Gtk::Label                      *label_beacon_data_bat_current_value;
+        Gtk::Label                      *label_beacon_data_bat_c_value;
+        Gtk::Label                      *label_beacon_data_sp_i_my;
+        Gtk::Label                      *label_beacon_data_sp_i_px;
+        Gtk::Label                      *label_beacon_data_sp_i_mx;
+        Gtk::Label                      *label_beacon_data_sp_i_pz;
+        Gtk::Label                      *label_beacon_data_sp_i_mz;
+        Gtk::Label                      *label_beacon_data_sp_i_py;
+        Gtk::Label                      *label_beacon_data_sp_v_mypx;
+        Gtk::Label                      *label_beacon_data_sp_v_mxpz;
+        Gtk::Label                      *label_beacon_data_sp_v_mzpy;
+        Gtk::Label                      *label_beacon_data_status_energy_level;
+        Gtk::Label                      *label_beacon_data_uc_temp_value;
+        Gtk::Label                      *label_beacon_data_status_imu;
+        Gtk::Label                      *label_beacon_data_status_usd;
+        Gtk::Label                      *label_beacon_data_status_rush;
+        Gtk::Label                      *label_beacon_data_status_eps;
+        Gtk::Label                      *label_beacon_data_status_antenna;
+        Gtk::Label                      *label_beacon_data_imu_accel_x;
+        Gtk::Label                      *label_beacon_data_imu_accel_y;
+        Gtk::Label                      *label_beacon_data_imu_accel_z;
+        Gtk::Label                      *label_beacon_data_imu_gyro_x;
+        Gtk::Label                      *label_beacon_data_imu_gyro_y;
+        Gtk::Label                      *label_beacon_data_imu_gyro_z;
+        Gtk::Label                      *label_beacon_data_obdh_rst_value;
+        Gtk::Label                      *label_beacon_data_system_time_value;
 
         //~ // Telemetry Data
         //~ Gtk::Label                      *label_telemetry_data_status_reset_counter;
@@ -348,28 +348,28 @@ class FSatGRS
         //~ Gtk::Label                      *label_telemetry_pkt_statistic_lost;
         
         //~ // Preferences Dialog
-        //~ Gtk::Dialog                     *dialog_config;
-        //~ Gtk::Entry                      *entry_config_general_gs_id;
-        //~ Gtk::Entry                      *entry_config_general_grid;
-        //~ Gtk::Entry                      *entry_config_general_city;
-        //~ Gtk::Entry                      *entry_config_general_country;
-        //~ Gtk::CheckButton                *checkbutton_log_ngham_packets;
-        //~ Gtk::CheckButton                *checkbutton_log_ax25_packets;
-        //~ Gtk::CheckButton                *checkbutton_log_beacon_data;
-        //~ Gtk::CheckButton                *checkbutton_log_telemetry_data;
-        //~ Gtk::Entry                      *entry_config_downlink_beacon_freq;
-        //~ Gtk::Entry                      *entry_config_downlink_beacon_baudrate;
-        //~ Gtk::Entry                      *entry_config_downlink_beacon_filter;
-        //~ Gtk::Entry                      *entry_config_downlink_beacon_sample_rate;
-        //~ Gtk::Entry                      *entry_config_downlink_telemetry_freq;
-        //~ Gtk::Entry                      *entry_config_downlink_telemetry_baudrate;
-        //~ Gtk::Entry                      *entry_config_downlink_telemetry_filter;
-        //~ Gtk::Entry                      *entry_config_downlink_telemetry_sample_rate;
-        //~ Gtk::Entry                      *entry_config_uplink_burst;
-        //~ Gtk::Entry                      *entry_config_uplink_frequency;
-        //~ Gtk::Entry                      *entry_config_uplink_baudrate;
-        //~ Gtk::Button                     *button_config_ok;
-        //~ Gtk::Button                     *button_config_default;
+        Gtk::Dialog                     *dialog_config;
+        Gtk::Entry                      *entry_config_general_gs_id;
+        Gtk::Entry                      *entry_config_general_grid;
+        Gtk::Entry                      *entry_config_general_city;
+        Gtk::Entry                      *entry_config_general_country;
+        Gtk::CheckButton                *checkbutton_log_ngham_packets;
+        Gtk::CheckButton                *checkbutton_log_ax25_packets;
+        Gtk::CheckButton                *checkbutton_log_beacon_data;
+        Gtk::CheckButton                *checkbutton_log_telemetry_data;
+        Gtk::Entry                      *entry_config_downlink_beacon_freq;
+        Gtk::Entry                      *entry_config_downlink_beacon_baudrate;
+        Gtk::Entry                      *entry_config_downlink_beacon_filter;
+        Gtk::Entry                      *entry_config_downlink_beacon_sample_rate;
+        Gtk::Entry                      *entry_config_downlink_telemetry_freq;
+        Gtk::Entry                      *entry_config_downlink_telemetry_baudrate;
+        Gtk::Entry                      *entry_config_downlink_telemetry_filter;
+        Gtk::Entry                      *entry_config_downlink_telemetry_sample_rate;
+        Gtk::Entry                      *entry_config_uplink_burst;
+        Gtk::Entry                      *entry_config_uplink_frequency;
+        Gtk::Entry                      *entry_config_uplink_baudrate;
+        Gtk::Button                     *button_config_ok;
+        Gtk::Button                     *button_config_default;
         
         //~ // About Dialog
         //~ Gtk::AboutDialog                *aboutdialog;
@@ -479,7 +479,7 @@ class FSatGRS
         //~ std::unique_ptr<PayloadXUpload> payload_x_upload;
 
         //~ // Message Dialog
-        //~ Gtk::MessageDialog              *msg_dialog;
+        Gtk::MessageDialog              *msg_dialog;
         
         //~ /**
          //~ * \brief 
@@ -488,7 +488,7 @@ class FSatGRS
         //~ /**
          //~ * \brief 
          //~ */
-        //~ EventLog                        *event_log;
+         EventLog                        *event_log;
         //~ /**
          //~ * \brief 
          //~ */
@@ -504,11 +504,11 @@ class FSatGRS
         //~ /**
          //~ * \brief 
          //~ */
-        //~ PacketData                      *beacon_data;
+         PacketData                      *beacon_data;
         //~ /**
          //~ * \brief 
          //~ */
-        //~ PacketData                      *telemetry_data;
+         PacketData                      *telemetry_data;
         //~ /**
          //~ * \brief 
          //~ */
@@ -524,7 +524,7 @@ class FSatGRS
         //~ /**
          //~ * \brief 
          //~ */
-        //~ ReadLog                         *read_log;
+        ReadLog                         *read_log;
         //~ /**
          //~ * \brief A vector to hold all the scheduled events.
          //~ */
@@ -571,37 +571,37 @@ class FSatGRS
          //~ * 
          //~ * \return 
          //~ */
-        //~ void OnToolButtonOpenClicked();
+         void OnToolButtonOpenClicked();
         //~ /**
          //~ * \brief 
          //~ * 
          //~ * \return 
          //~ */
-        //~ void OnButtonLogViewerCancelClicked();
+         void OnButtonLogViewerCancelClicked();
         //~ /**
          //~ * \brief 
          //~ * 
          //~ * \return 
          //~ */
-        //~ void OnButtonLogViewerOpenClicked();
+         void OnButtonLogViewerOpenClicked();
         //~ /**
          //~ * \brief 
          //~ * 
          //~ * \return 
          //~ */
-        //~ void OnToolButtonCloseClicked();
+         void OnToolButtonCloseClicked();
         //~ /**
          //~ * \brief 
          //~ * 
          //~ * \return 
          //~ */
-        //~ void OnToolButtonPrevClicked();
+         void OnToolButtonPrevClicked();
         //~ /**
          //~ * \brief 
          //~ * 
          //~ * \return 
          //~ */
-        //~ void OnToolButtonNextClicked();
+         void OnToolButtonNextClicked();
 
         //~ /**
          //~ * \brief 
@@ -686,7 +686,7 @@ class FSatGRS
          //~ * 
          //~ * \return None
          //~ */
-        //~ void OnToolButtonConfigClicked();
+         void OnToolButtonConfigClicked();
         //~ /**
          //~ * \brief 
          //~ * 
@@ -970,7 +970,7 @@ class FSatGRS
          //~ * 
          //~ * \return None
          //~ */
-        //~ void LoadConfigs();
+         void LoadConfigs();
         //~ /**
          //~ * \brief Save configuration parameters to a configuration parameters file.
          //~ * 
@@ -982,7 +982,7 @@ class FSatGRS
          //~ * 
          //~ * \return None
          //~ */
-        //~ void LoadDefaultConfigs();
+        void LoadDefaultConfigs();
 
         /**
          * \brief Checks the existence of a file.

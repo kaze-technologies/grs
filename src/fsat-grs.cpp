@@ -45,8 +45,8 @@
 #include "fsat-grs.h"
 //~ #include "version.h"
 //~ #include "aux.hpp"
-//~ #include "beacon_data_old.h"
-//~ #include "telemetry_data.h"
+#include "beacon_data_old.h"
+#include "telemetry_data.h"
 //~ #include "telecommands.h" 
 //~ #include "sha256.h"
 //~ #include "uplink_events_columns.h"
@@ -113,45 +113,45 @@ int FSatGRS::BuildWidgets(Glib::RefPtr<Gtk::Builder> ref_builder)
         return -1;
     }
     
-    // Toolbar
-    //~ ref_builder->get_widget("toolbutton_open_log_file", toolbutton_open_log_file);
-    //~ if (toolbutton_open_log_file)
-    //~ {
-        //~ toolbutton_open_log_file->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonOpenClicked));
-    //~ }
-    //~ std::cout << "Piss3" << std::endl;
+     //Toolbar
+     std::cout << "Piss2" << std::endl;
+     ref_builder->get_widget("toolbutton_open_log_file", toolbutton_open_log_file);
+     if (toolbutton_open_log_file)
+     {
+         toolbutton_open_log_file->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonOpenClicked));
+     }
     
-    //~ ref_builder->get_widget("filechooserdialog_log_viewer", filechooserdialog_log_viewer);
+     ref_builder->get_widget("filechooserdialog_log_viewer", filechooserdialog_log_viewer);
     
-    //~ ref_builder->get_widget("button_log_viewer_cancel", button_log_viewer_cancel);
-    //~ if (button_log_viewer_cancel)
-    //~ {
-        //~ button_log_viewer_cancel->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnButtonLogViewerCancelClicked));
-    //~ }
+    ref_builder->get_widget("button_log_viewer_cancel", button_log_viewer_cancel);
+    if (button_log_viewer_cancel)
+    {
+        button_log_viewer_cancel->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnButtonLogViewerCancelClicked));
+    }
 
-    //~ ref_builder->get_widget("button_log_viewer_open", button_log_viewer_open);
-    //~ if (button_log_viewer_open)
-    //~ {
-        //~ button_log_viewer_open->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnButtonLogViewerOpenClicked));
-    //~ }
+    ref_builder->get_widget("button_log_viewer_open", button_log_viewer_open);
+    if (button_log_viewer_open)
+    {
+        button_log_viewer_open->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnButtonLogViewerOpenClicked));
+    }
 
-    //~ ref_builder->get_widget("toolbutton_close_log_file", toolbutton_close_log_file);
-    //~ if (toolbutton_close_log_file)
-    //~ {
-        //~ toolbutton_close_log_file->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonCloseClicked));
-    //~ }
+    ref_builder->get_widget("toolbutton_close_log_file", toolbutton_close_log_file);
+    if (toolbutton_close_log_file)
+    {
+        toolbutton_close_log_file->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonCloseClicked));
+    }
 
-    //~ ref_builder->get_widget("toolbutton_prev_log_line", toolbutton_prev_log_line);
-    //~ if (toolbutton_prev_log_line)
-    //~ {
-        //~ toolbutton_prev_log_line->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonPrevClicked));
-    //~ }
+    ref_builder->get_widget("toolbutton_prev_log_line", toolbutton_prev_log_line);
+    if (toolbutton_prev_log_line)
+    {
+        toolbutton_prev_log_line->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonPrevClicked));
+    }
 
-    //~ ref_builder->get_widget("toolbutton_next_log_line", toolbutton_next_log_line);
-    //~ if (toolbutton_next_log_line)
-    //~ {
-        //~ toolbutton_next_log_line->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonNextClicked));
-    //~ }
+    ref_builder->get_widget("toolbutton_next_log_line", toolbutton_next_log_line);
+    if (toolbutton_next_log_line)
+    {
+        toolbutton_next_log_line->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonNextClicked));
+    }
 
     //~ ref_builder->get_widget("toolbutton_plot", toolbutton_plot);
     //~ if (toolbutton_plot)
@@ -859,7 +859,7 @@ int FSatGRS::Run(Glib::RefPtr<Gtk::Application> app)
     cmd = "grep -q -F \"" FSAT_GRS_ADMIN_PASSWORD_HASH "\" $HOME" FSAT_GRS_USERS_PASSWORDS_FILE " || echo \"" FSAT_GRS_ADMIN_PASSWORD_HASH "\" > $HOME" FSAT_GRS_USERS_PASSWORDS_FILE;
     system(cmd.c_str());
     
-    //~ this->LoadConfigs();
+    //~ this->LoadConfigs(); // Not working yet. DEBUG.
 
     //~ auto timer_slot = sigc::mem_fun(*this, &FSatGRS::Timer);
     //~ auto conn = Glib::signal_timeout().connect(timer_slot, DATA_RECEPTION_SAMPLE_RATE);
@@ -1144,117 +1144,120 @@ int FSatGRS::Run(Glib::RefPtr<Gtk::Application> app)
     //~ }
 //~ }
 
-//~ void FSatGRS::OnToolButtonOpenClicked()
-//~ {
-    //~ int response = filechooserdialog_log_viewer->run();
+void FSatGRS::OnToolButtonOpenClicked()
+{
+	std::cout << "T1" << std::endl;
+    int response = filechooserdialog_log_viewer->run();
+    std::cout << response << std::endl;
     
-    //~ if ((response == Gtk::RESPONSE_DELETE_EVENT) or (response == Gtk::RESPONSE_CANCEL))
-    //~ {
-        //~ filechooserdialog_log_viewer->hide();
-    //~ }
-//~ }
+    if ((response == Gtk::RESPONSE_DELETE_EVENT) or (response == Gtk::RESPONSE_CANCEL))
+    {
+        filechooserdialog_log_viewer->hide();
+    }
+    std::cout << "T2" << std::endl;
+}
 
-//~ void FSatGRS::OnButtonLogViewerCancelClicked()
-//~ {
-    //~ filechooserdialog_log_viewer->hide();
-//~ }
+void FSatGRS::OnButtonLogViewerCancelClicked()
+{
+    filechooserdialog_log_viewer->hide();
+}
 
-//~ void FSatGRS::OnButtonLogViewerOpenClicked()
-//~ {
-    //~ string log_file = filechooserdialog_log_viewer->get_filename();
+void FSatGRS::OnButtonLogViewerOpenClicked()
+{
+    string log_file = filechooserdialog_log_viewer->get_filename();
 
-    //~ read_log = new ReadLog;
+    read_log = new ReadLog;
 
-    //~ read_log->open(log_file.c_str());
+    read_log->open(log_file.c_str());
 
-    //~ filechooserdialog_log_viewer->hide();
+    filechooserdialog_log_viewer->hide();
     
-    //~ if (read_log->is_open())
-    //~ {
-        //~ string log_text = read_log->getLogType();
-        //~ log_text += " log file ";
-        //~ log_text += log_file.c_str();
-        //~ log_text += " with ";
-        //~ log_text += ToString(read_log->getLines());
-        //~ log_text += " entries opened.";
+    if (read_log->is_open())
+    {
+        string log_text = read_log->getLogType();
+        log_text += " log file ";
+        log_text += log_file.c_str();
+        log_text += " with ";
+        log_text += std::to_string(read_log->getLines());
+        log_text += " entries opened.";
 
-        //~ event_log->AddNewEvent(log_text.c_str());
+        event_log->AddNewEvent(log_text.c_str());
 
-        //~ beacon_data->ForceDisplay(read_log->getDataLine(0));
+        beacon_data->ForceDisplay(read_log->getDataLine(0));
         
-        //~ toolbutton_open_log_file->set_sensitive(false);
-        //~ toolbutton_close_log_file->set_sensitive(true);
-        //~ toolbutton_prev_log_line->set_sensitive(true);
-        //~ toolbutton_next_log_line->set_sensitive(true);
-    //~ }
-    //~ else
-    //~ {
-        //~ delete read_log;
+        toolbutton_open_log_file->set_sensitive(false);
+        toolbutton_close_log_file->set_sensitive(true);
+        toolbutton_prev_log_line->set_sensitive(true);
+        toolbutton_next_log_line->set_sensitive(true);
+    }
+    else
+    {
+        delete read_log;
 
-        //~ this->RaiseErrorMessage("Error opening the log file!", "The selected file is invalid or corrupted.");
-    //~ }
-//~ }
+        this->RaiseErrorMessage("Error opening the log file!", "The selected file is invalid or corrupted.");
+    }
+}
 
-//~ void FSatGRS::OnToolButtonCloseClicked()
-//~ {
-    //~ if (read_log->is_open())
-    //~ {
-        //~ read_log->close();
+void FSatGRS::OnToolButtonCloseClicked()
+{
+    if (read_log->is_open())
+    {
+        read_log->close();
         
-        //~ delete read_log;
-    //~ }
+        delete read_log;
+    }
 
-    //~ toolbutton_open_log_file->set_sensitive(true);
-    //~ toolbutton_close_log_file->set_sensitive(false);
-    //~ toolbutton_prev_log_line->set_sensitive(false);
-    //~ toolbutton_next_log_line->set_sensitive(false);
+    toolbutton_open_log_file->set_sensitive(true);
+    toolbutton_close_log_file->set_sensitive(false);
+    toolbutton_prev_log_line->set_sensitive(false);
+    toolbutton_next_log_line->set_sensitive(false);
 
-    //~ event_log->AddNewEvent("Log file closed.");
-//~ }
+    event_log->AddNewEvent("Log file closed.");
+}
 
-//~ void FSatGRS::OnToolButtonPrevClicked()
-//~ {
-    //~ if (read_log->getLogType() == "BEACON")
-    //~ {
-        //~ beacon_data->ForceDisplay(read_log->getPrevious());
-    //~ }
-    //~ else if (read_log->getLogType() == "TELEMETRY")
-    //~ {
-        //~ telemetry_data->ForceDisplay(read_log->getPrevious());
-    //~ }
-    //~ else
-    //~ {
-        //~ this->RaiseErrorMessage("Type of log file unknown!", "Nothing to display.");
-    //~ }
-//~ }
+void FSatGRS::OnToolButtonPrevClicked()
+{
+    if (read_log->getLogType() == "BEACON")
+    {
+        beacon_data->ForceDisplay(read_log->getPrevious());
+    }
+    else if (read_log->getLogType() == "TELEMETRY")
+    {
+        telemetry_data->ForceDisplay(read_log->getPrevious());
+    }
+    else
+    {
+        this->RaiseErrorMessage("Type of log file unknown!", "Nothing to display.");
+    }
+}
 
-//~ void FSatGRS::OnToolButtonNextClicked()
-//~ {
-    //~ if (read_log->getLogType() == "BEACON")
-    //~ {
-        //~ beacon_data->ForceDisplay(read_log->getNext());
-    //~ }
-    //~ else if (read_log->getLogType() == "TELEMETRY")
-    //~ {
-        //~ telemetry_data->ForceDisplay(read_log->getNext());
-    //~ }
-    //~ else
-    //~ {
-        //~ this->RaiseErrorMessage("Type of log file unknown!", "Nothing to display.");
-    //~ }
-//~ }
+void FSatGRS::OnToolButtonNextClicked()
+{
+    if (read_log->getLogType() == "BEACON")
+    {
+        beacon_data->ForceDisplay(read_log->getNext());
+    }
+    else if (read_log->getLogType() == "TELEMETRY")
+    {
+        telemetry_data->ForceDisplay(read_log->getNext());
+    }
+    else
+    {
+        this->RaiseErrorMessage("Type of log file unknown!", "Nothing to display.");
+    }
+}
 
-//~ void FSatGRS::OnToolButtonConfigClicked()
-//~ {    
-    //~ int response = dialog_config->run();
+void FSatGRS::OnToolButtonConfigClicked()
+{    
+    int response = dialog_config->run();
     
-    //~ if ((response == Gtk::RESPONSE_DELETE_EVENT) or (response == Gtk::RESPONSE_CANCEL))
-    //~ {
-        //~ this->LoadConfigs();
+    if ((response == Gtk::RESPONSE_DELETE_EVENT) or (response == Gtk::RESPONSE_CANCEL))
+    {
+        this->LoadConfigs();
         
-        //~ dialog_config->hide();
-    //~ }
-//~ }
+        dialog_config->hide();
+    }
+}
 
 //~ void FSatGRS::OnButtonConfigOkClicked()
 //~ {
@@ -2677,16 +2680,16 @@ int FSatGRS::Run(Glib::RefPtr<Gtk::Application> app)
 //~ //-- ERRORS -----------------------------------------------------------------------------------------------------------------------------
 //~ //***************************************************************************************************************************************
 //~ //***************************************************************************************************************************************
-//~ void FSatGRS::RaiseErrorMessage(const char* error_title, const char* error_text)
-//~ {
-    //~ msg_dialog = new Gtk::MessageDialog(error_title, false, Gtk::MESSAGE_ERROR);
-    //~ msg_dialog->set_secondary_text(error_text);
-    //~ msg_dialog->set_transient_for(*window_fsat_grs);
+void FSatGRS::RaiseErrorMessage(const char* error_title, const char* error_text)
+{
+    msg_dialog = new Gtk::MessageDialog(error_title, false, Gtk::MESSAGE_ERROR);
+    msg_dialog->set_secondary_text(error_text);
+    msg_dialog->set_transient_for(*window_fsat_grs);
     
-    //~ msg_dialog->run();
+    msg_dialog->run();
     
-    //~ delete msg_dialog;
-//~ }
+    delete msg_dialog;
+}
 
 //~ //***************************************************************************************************************************************
 //~ //***************************************************************************************************************************************
@@ -3265,50 +3268,50 @@ int FSatGRS::Run(Glib::RefPtr<Gtk::Application> app)
 //~ //-- CONFIGURATION ----------------------------------------------------------------------------------------------------------------------
 //~ //***************************************************************************************************************************************
 //~ //***************************************************************************************************************************************
-//~ void FSatGRS::LoadConfigs()
-//~ {
-    //~ string homepath = getenv("HOME");
+void FSatGRS::LoadConfigs()
+{
+    string homepath = getenv("HOME");
     
-    //~ ifstream file_config((homepath + FSAT_GRS_CONFIG_FILE).c_str(), ifstream::in);
+    ifstream file_config((homepath + FSAT_GRS_CONFIG_FILE).c_str(), ifstream::in);
     
-    //~ if (file_config.is_open())
-    //~ {
-        //~ vector<string> configs_str;
+    if (file_config.is_open())
+    {
+        vector<string> configs_str;
         
-        //~ string file_config_line;
+        string file_config_line;
         
-        //~ while(getline(file_config, file_config_line))
-        //~ {
-            //~ configs_str.push_back(file_config_line);
-        //~ }
+        while(getline(file_config, file_config_line))
+        {
+            configs_str.push_back(file_config_line);
+        }
         
-        //~ file_config.close();
+        file_config.close();
         
-        //~ entry_config_general_gs_id->set_text(configs_str[0]);
-        //~ checkbutton_log_ngham_packets->set_active((configs_str[1] == "1"? true : false));
-        //~ checkbutton_log_ax25_packets->set_active((configs_str[2] == "1"? true : false));
-        //~ checkbutton_log_beacon_data->set_active((configs_str[3] == "1"? true : false));
-        //~ checkbutton_log_telemetry_data->set_active((configs_str[4] == "1"? true : false));
-        //~ entry_config_downlink_beacon_freq->set_text(configs_str[5]);
-        //~ entry_config_downlink_beacon_baudrate->set_text(configs_str[6]);
-        //~ entry_config_downlink_beacon_filter->set_text(configs_str[7]);
-        //~ entry_config_downlink_beacon_sample_rate->set_text(configs_str[8]);
-        //~ entry_config_downlink_telemetry_freq->set_text(configs_str[9]);
-        //~ entry_config_downlink_telemetry_baudrate->set_text(configs_str[10]);
-        //~ entry_config_downlink_telemetry_filter->set_text(configs_str[11]);
-        //~ entry_config_downlink_telemetry_sample_rate->set_text(configs_str[12]);
-        //~ entry_config_uplink_burst->set_text(configs_str[13]);
-        //~ entry_config_uplink_frequency->set_text(configs_str[14]);
-        //~ entry_config_uplink_baudrate->set_text(configs_str[15]);
-        //~ entry_config_general_grid->set_text(configs_str[16]);
-        //~ entry_config_general_city->set_text(configs_str[17]);
-        //~ entry_config_general_country->set_text(configs_str[18]);
-    //~ }
-    //~ else
-    //~ {
-        //~ this->LoadDefaultConfigs();
-    //~ }
-//~ }
+        entry_config_general_gs_id->set_text(configs_str[0]);
+        checkbutton_log_ngham_packets->set_active((configs_str[1] == "1"? true : false));
+        checkbutton_log_ax25_packets->set_active((configs_str[2] == "1"? true : false));
+        checkbutton_log_beacon_data->set_active((configs_str[3] == "1"? true : false));
+        checkbutton_log_telemetry_data->set_active((configs_str[4] == "1"? true : false));
+        entry_config_downlink_beacon_freq->set_text(configs_str[5]);
+        entry_config_downlink_beacon_baudrate->set_text(configs_str[6]);
+        entry_config_downlink_beacon_filter->set_text(configs_str[7]);
+        entry_config_downlink_beacon_sample_rate->set_text(configs_str[8]);
+        entry_config_downlink_telemetry_freq->set_text(configs_str[9]);
+        entry_config_downlink_telemetry_baudrate->set_text(configs_str[10]);
+        entry_config_downlink_telemetry_filter->set_text(configs_str[11]);
+        entry_config_downlink_telemetry_sample_rate->set_text(configs_str[12]);
+        entry_config_uplink_burst->set_text(configs_str[13]);
+        entry_config_uplink_frequency->set_text(configs_str[14]);
+        entry_config_uplink_baudrate->set_text(configs_str[15]);
+        entry_config_general_grid->set_text(configs_str[16]);
+        entry_config_general_city->set_text(configs_str[17]);
+        entry_config_general_country->set_text(configs_str[18]);
+    }
+    else
+    {
+        this->LoadDefaultConfigs();
+    }
+}
 
 //~ void FSatGRS::SaveConfigs()
 //~ {
@@ -3358,28 +3361,28 @@ int FSatGRS::Run(Glib::RefPtr<Gtk::Application> app)
     //~ file_config.close();
 //~ }
 
-//~ void FSatGRS::LoadDefaultConfigs()
-//~ {
-    //~ entry_config_general_gs_id->set_text("PP5UF");
-    //~ entry_config_general_grid->set_text("GG52RJ");
-    //~ entry_config_general_city->set_text("Florianópolis");
-    //~ entry_config_general_country->set_text("Brazil");
-    //~ checkbutton_log_ngham_packets->set_active(true);
-    //~ checkbutton_log_ax25_packets->set_active(true);
-    //~ checkbutton_log_beacon_data->set_active(true);
-    //~ checkbutton_log_telemetry_data->set_active(true);
-    //~ entry_config_downlink_beacon_freq->set_text(FSAT_GRS_BEACON_DEFAULT_FREQUENCY_HZ);
-    //~ entry_config_downlink_beacon_baudrate->set_text(to_string(FSAT_GRS_BEACON_DEFAULT_BAUDRATE_BPS));
-    //~ entry_config_downlink_beacon_filter->set_text("30e3");
-    //~ entry_config_downlink_beacon_sample_rate->set_text("1e6");
-    //~ entry_config_downlink_telemetry_freq->set_text(FSAT_GRS_DOWNLINK_DEFAULT_FREQUENCY_HZ);
-    //~ entry_config_downlink_telemetry_baudrate->set_text(to_string(FSAT_GRS_DOWNLINK_DEFAULT_BAUDRATE_BPS));
-    //~ entry_config_downlink_telemetry_filter->set_text("50e3");
-    //~ entry_config_downlink_telemetry_sample_rate->set_text("1e6");
-    //~ entry_config_uplink_burst->set_text("1");
-    //~ entry_config_uplink_frequency->set_text(FSAT_GRS_UPLINK_DEFAULT_FREQUENCY_HZ);
-    //~ entry_config_uplink_baudrate->set_text(to_string(FSAT_GRS_UPLINK_DEFAULT_BAUDRATE_BPS));
-//~ }
+void FSatGRS::LoadDefaultConfigs()
+{
+    entry_config_general_gs_id->set_text("PP5UF");
+    entry_config_general_grid->set_text("GG52RJ");
+    entry_config_general_city->set_text("Florianópolis");
+    entry_config_general_country->set_text("Brazil");
+    checkbutton_log_ngham_packets->set_active(true);
+    checkbutton_log_ax25_packets->set_active(true);
+    checkbutton_log_beacon_data->set_active(true);
+    checkbutton_log_telemetry_data->set_active(true);
+    entry_config_downlink_beacon_freq->set_text(FSAT_GRS_BEACON_DEFAULT_FREQUENCY_HZ);
+    entry_config_downlink_beacon_baudrate->set_text(to_string(FSAT_GRS_BEACON_DEFAULT_BAUDRATE_BPS));
+    entry_config_downlink_beacon_filter->set_text("30e3");
+    entry_config_downlink_beacon_sample_rate->set_text("1e6");
+    entry_config_downlink_telemetry_freq->set_text(FSAT_GRS_DOWNLINK_DEFAULT_FREQUENCY_HZ);
+    entry_config_downlink_telemetry_baudrate->set_text(to_string(FSAT_GRS_DOWNLINK_DEFAULT_BAUDRATE_BPS));
+    entry_config_downlink_telemetry_filter->set_text("50e3");
+    entry_config_downlink_telemetry_sample_rate->set_text("1e6");
+    entry_config_uplink_burst->set_text("1");
+    entry_config_uplink_frequency->set_text(FSAT_GRS_UPLINK_DEFAULT_FREQUENCY_HZ);
+    entry_config_uplink_baudrate->set_text(to_string(FSAT_GRS_UPLINK_DEFAULT_BAUDRATE_BPS));
+}
 
 bool FSatGRS::CheckFile(const char *file)
 {

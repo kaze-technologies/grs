@@ -35,9 +35,7 @@
  * \{
  */
 
-#include <gtkmm.h>
-
-#include "fsat-grs.h"
+//~ #include "fsat-grs.h"
 #include <iostream>
 /**
  * \fn main
@@ -51,15 +49,7 @@
  */
 int main(int argc, char *argv[])
 {
-    auto app = Gtk::Application::create(argc, argv, "org.gtkmm.floripasat");
-    
-    auto ref_builder = Gtk::Builder::create();
-
-    FSatGRS fsat_grs;
-    
-    fsat_grs.BuildWidgets(ref_builder);
-    
-    return fsat_grs.Run(app);
+    std::cout << "Hello World!" << std::endl;
 }
 
 //! \} End of fsat_grs group
