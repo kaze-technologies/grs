@@ -7,7 +7,7 @@ CXX=c++
 CXXFLAGS=-march=morello -mabi=aapcs -std=c++14 -lpython3.9
 GTKMM_FLAGS=`pkg-config --cflags --libs gtkmm-3.0`
 
-gui:
+full:
 	mkdir -p $(BUILD_DIR)
 	$(MAKE) BUILD_DIR=$(PWD)/$(BUILD_DIR) -C libs
 	$(MAKE) BUILD_DIR=$(PWD)/$(BUILD_DIR) -C src

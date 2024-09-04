@@ -114,7 +114,6 @@ int FSatGRS::BuildWidgets(Glib::RefPtr<Gtk::Builder> ref_builder)
     }
     
      //Toolbar
-     std::cout << "Piss2" << std::endl;
      ref_builder->get_widget("toolbutton_open_log_file", toolbutton_open_log_file);
      if (toolbutton_open_log_file)
      {
@@ -153,35 +152,35 @@ int FSatGRS::BuildWidgets(Glib::RefPtr<Gtk::Builder> ref_builder)
         toolbutton_next_log_line->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonNextClicked));
     }
 
-    //~ ref_builder->get_widget("toolbutton_plot", toolbutton_plot);
-    //~ if (toolbutton_plot)
-    //~ {
-        //~ toolbutton_plot->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonPlotClicked));
-    //~ }
+    ref_builder->get_widget("toolbutton_plot", toolbutton_plot);
+    if (toolbutton_plot)
+    {
+        toolbutton_plot->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonPlotClicked));
+    }
     
-    //~ ref_builder->get_widget("toolbutton_ping", toolbutton_ping);
-    //~ if (toolbutton_ping)
-    //~ {
-        //~ toolbutton_ping->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonPingClicked));
-    //~ }
+    ref_builder->get_widget("toolbutton_ping", toolbutton_ping);
+    if (toolbutton_ping)
+    {
+        toolbutton_ping->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonPingClicked));
+    }
     
-    //~ ref_builder->get_widget("toolbutton_request_data", toolbutton_request_data);
-    //~ if (toolbutton_request_data)
-    //~ {
-        //~ toolbutton_request_data->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonRequestDataClicked));
-    //~ }
+    ref_builder->get_widget("toolbutton_request_data", toolbutton_request_data);
+    if (toolbutton_request_data)
+    {
+        toolbutton_request_data->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonRequestDataClicked));
+    }
 
-    //~ ref_builder->get_widget("toolbutton_reset_charge", toolbutton_reset_charge);
-    //~ if (toolbutton_reset_charge)
-    //~ {
-        //~ toolbutton_reset_charge->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonResetChargeClicked));
-    //~ }
+    ref_builder->get_widget("toolbutton_reset_charge", toolbutton_reset_charge);
+    if (toolbutton_reset_charge)
+    {
+        toolbutton_reset_charge->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonResetChargeClicked));
+    }
 
-    //~ ref_builder->get_widget("toolbutton_broadcast_message", toolbutton_broadcast_message);
-    //~ if (toolbutton_broadcast_message)
-    //~ {
-        //~ toolbutton_broadcast_message->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonBroadcastMessageClicked));
-    //~ }
+    ref_builder->get_widget("toolbutton_broadcast_message", toolbutton_broadcast_message);
+    if (toolbutton_broadcast_message)
+    {
+        toolbutton_broadcast_message->signal_clicked().connect(sigc::mem_fun(*this, &FSatGRS::OnToolButtonBroadcastMessageClicked));
+    }
 
     //~ ref_builder->get_widget("toolbutton_hibernation", toolbutton_hibernation);
     //~ if (toolbutton_hibernation)
